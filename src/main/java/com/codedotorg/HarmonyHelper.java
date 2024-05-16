@@ -101,7 +101,15 @@ public class HarmonyHelper {
      * Sorts the instruments in the 'instruments' list based on their names.
      */
     public void sortInstruments() {
-        
+        for (int i = 0; i < instruments.size(); i++) {
+            for (int j = i + 1; j < instruments.size(); j++) {
+                if (instruments.get(i).getName().compareTo(instruments.get(j).getName()) > 0) {
+                    Instrument temp = instruments.get(i);
+                    instruments.set(i, instruments.get(j));
+                    instruments.set(j, temp);
+                }
+            }
+        }
 
     }
 
@@ -133,5 +141,6 @@ public class HarmonyHelper {
 
         return tempButton;
     }
+   
 
 }
